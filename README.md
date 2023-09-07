@@ -44,7 +44,7 @@ docker push <registry-url>/your-docker-repo:tag
 
 ## Step 4: Deploy the Application to AKS
 1. kubectl apply -f deployment.yaml
- ```
+   ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -64,10 +64,27 @@ spec:
           image: your-docker-registry/your-docker-repo:your-tag
           ports:
             - containerPort: 3000  # Port exposed by the Node.js app
-```
+
 
 
 ## Step 5: Expose the Application
+1. Create a Kubernetes Service to expose your application:
+2. kubectl apply -f service.yaml
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-service
+spec:
+  selector:
+    app: nodejs-app
+  ports:
+    - protocol: TCP
+      port: 80  # Port exposed by the service
+      targetPort: 3000  # Port your Node.js app listens on
+  type: LoadBalancer  # Exposes the service externally via a cloud provider's load balancer (use "ClusterIP" for internal access)
+
 
 
 
