@@ -29,9 +29,11 @@ Before you begin, ensure that you have the following prerequisites in place:
 ## Step 2: Push the Docker Image to a Registry
 1. Push the Docker image to a container registry of your choice (e.g., Azure Container Registry, Docker Hub):
    ```
-docker login <registry-url>
-docker tag your-docker-image-name:latest <registry-url>/your-docker-repo:tag
-docker push <registry-url>/your-docker-repo:tag
+      az acr login --name <acr-name>
+      docker build -t <acr-name>.azurecr.io/your-image-name:<version> .
+      docker push <acr-name>.azurecr.io/your-image-name:<version>
+      az acr repository list --name <acr-name>
+   
 
 ## Step 3: Set Up AKS Cluster
 
