@@ -45,25 +45,25 @@ docker push <registry-url>/your-docker-repo:tag
 ## Step 4: Deploy the Application to AKS
 1. kubectl apply -f deployment.yaml
    ```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nodejs-app
-spec:
-  replicas: 3  # Number of replicas to run (adjust as needed)
-  selector:
-    matchLabels:
-      app: nodejs-app
-  template:
-    metadata:
-      labels:
-        app: nodejs-app
-    spec:
-      containers:
-        - name: nodejs-app
-          image: your-docker-registry/your-docker-repo:your-tag
-          ports:
-            - containerPort: 3000  # Port exposed by the Node.js app
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: nodejs-app
+      spec:
+        replicas: 3  # Number of replicas to run (adjust as needed)
+        selector:
+          matchLabels:
+            app: nodejs-app
+        template:
+          metadata:
+            labels:
+              app: nodejs-app
+          spec:
+            containers:
+              - name: nodejs-app
+                image: your-docker-registry/your-docker-repo:your-tag
+                ports:
+                  - containerPort: 3000  # Port exposed by the Node.js app
 
 
 
