@@ -43,9 +43,8 @@ docker push <registry-url>/your-docker-repo:tag
    az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>
 
 ## Step 4: Deploy the Application to AKS
-
 1. kubectl apply -f deployment.yaml
-  ```
+ ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -65,9 +64,11 @@ spec:
           image: your-docker-registry/your-docker-repo:your-tag
           ports:
             - containerPort: 3000  # Port exposed by the Node.js app
+```
 
-2. Deploy your Node.js application to AKS using Kubernetes manifests. You can use the provided deployment.yaml as a starting point:
 
 ## Step 5: Expose the Application
+
+
 
 
