@@ -72,8 +72,7 @@ spec:
 
 ## Step 5: Expose the Application:
 
-1. Kubernetes Service Configuration (service.yaml):
-
+1. Kubernetes Service Configuration (service.yaml)
 ```
 apiVersion: v1
 kind: Service
@@ -89,7 +88,7 @@ spec:
   type: LoadBalancer  # Exposes the service externally via a cloud provider's load balancer (use "ClusterIP" for internal access)
 
 
-1. Create a Kubernetes Service to expose your application:
+2. Create a Kubernetes Service to expose your application:
 ```
 kubectl apply -f service.yaml
 
