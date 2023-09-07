@@ -71,6 +71,7 @@ spec:
 ## Step 5: Expose the Application
 
 1. Kubernetes Service Configuration (service.yaml):
+
 ```
 apiVersion: v1
 kind: Service
@@ -90,9 +91,5 @@ spec:
 ```
 kubectl apply -f service.yaml
 
-
-#Congratulations! Your Node.js application is now deployed to Azure Kubernetes Service (AKS). For more customization and advanced configurations, refer to the Kubernetes documentation and Azure resources.
-
-Feel free to update this README with specific details and provide clear instructions for users to deploy and use your application on AKS.
 
 
