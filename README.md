@@ -66,31 +66,8 @@ spec:
           ports:
             - containerPort: 3000  # Port exposed by the Node.js app
 
-
 2. Deploy your Node.js application to AKS using Kubernetes manifests. You can use the provided deployment.yaml as a starting point:
 
-
-## Step 5: Expose the Application:
-
-1. Kubernetes Service Configuration (service.yaml)
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: nodejs-service
-spec:
-  selector:
-    app: nodejs-app
-  ports:
-    - protocol: TCP
-      port: 80  # Port exposed by the service
-      targetPort: 3000  # Port your Node.js app listens on
-  type: LoadBalancer  # Exposes the service externally via a cloud provider's load balancer (use "ClusterIP" for internal access)
-
-
-2. Create a Kubernetes Service to expose your application:
-```
-kubectl apply -f service.yaml
-
+## Step 5: Expose the Application
 
 
